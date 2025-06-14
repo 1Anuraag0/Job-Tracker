@@ -171,6 +171,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 <div align="center">
-  <p>Made with ❤️ by <a href="https://github.com/your-username">Your Name</a></p>
+  <p>Made with ❤️ by <a href="https://github.com/your-username">Anurag</a></p>
   <p>⭐ Star this repo if it helped you!</p>
 </div>
