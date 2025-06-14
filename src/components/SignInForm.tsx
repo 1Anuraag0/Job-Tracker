@@ -9,7 +9,11 @@ import { useToast } from '@/hooks/use-toast';
 import { Loader2, Eye, EyeOff } from 'lucide-react';
 import { SocialLoginButtons } from './SocialLoginButtons';
 
-export const SignInForm = () => {
+interface SignInFormProps {
+  onForgotPassword: () => void;
+}
+
+export const SignInForm = ({ onForgotPassword }: SignInFormProps) => {
   const [isLoading, setIsLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
@@ -114,7 +118,12 @@ export const SignInForm = () => {
             </Label>
           </div>
           
-          <Button variant="link" className="px-0 font-normal text-sm">
+          <Button 
+            type="button"
+            variant="link" 
+            className="px-0 font-normal text-sm"
+            onClick={onForgotPassword}
+          >
             Forgot password?
           </Button>
         </div>
