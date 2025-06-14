@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Plus, LogOut, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -13,35 +14,7 @@ const Index = () => {
   const { user, signOut } = useAuth();
   const { toast } = useToast();
   
-  const [jobApplications, setJobApplications] = useState<JobApplication[]>([
-    {
-      id: '1',
-      company: 'Google',
-      role: 'Software Engineer Intern',
-      applicationDate: '2024-01-15',
-      jobLink: 'https://careers.google.com',
-      status: 'applied',
-      notes: 'Applied through university career portal'
-    },
-    {
-      id: '2',
-      company: 'Microsoft',
-      role: 'Frontend Developer Intern',
-      applicationDate: '2024-01-12',
-      jobLink: 'https://careers.microsoft.com',
-      status: 'interviewing',
-      notes: 'First round completed, waiting for technical interview'
-    },
-    {
-      id: '3',
-      company: 'Meta',
-      role: 'Product Manager Intern',
-      applicationDate: '2024-01-10',
-      jobLink: 'https://careers.meta.com',
-      status: 'rejected',
-      notes: 'Not selected after phone screening'
-    }
-  ]);
+  const [jobApplications, setJobApplications] = useState<JobApplication[]>([]);
 
   const [isAddJobOpen, setIsAddJobOpen] = useState(false);
 
