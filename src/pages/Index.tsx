@@ -9,34 +9,33 @@ import { AddJobForm } from '@/components/AddJobForm';
 import { JobApplication } from '@/types/job';
 import { useAuth } from '@/contexts/AuthContext';
 import { useToast } from '@/hooks/use-toast';
+import { useJobApplications } from '@/hooks/useJobApplications';
 
 const Index = () => {
   const { user, signOut } = useAuth();
   const { toast } = useToast();
-  
-  const [jobApplications, setJobApplications] = useState<JobApplication[]>([]);
+  const {
+    jobApplications,
+    isLoading,
+    addJob,
+    updateJobStatus,
+    deleteJob,
+    isAddingJob
+  } = useJobApplications();
 
   const [isAddJobOpen, setIsAddJobOpen] = useState(false);
 
   const handleAddJob = (newJob: Omit<JobApplication, 'id'>) => {
-    const job: JobApplication = {
-      ...newJob,
-      id: Date.now().toString()
-    };
-    setJobApplications(prev => [...prev, job]);
+    addJob(newJob);
     setIsAddJobOpen(false);
   };
 
   const handleUpdateJobStatus = (jobId: string, newStatus: JobApplication['status']) => {
-    setJobApplications(prev =>
-      prev.map(job =>
-        job.id === jobId ? { ...job, status: newStatus } : job
-      )
-    );
+    updateJobStatus({ jobId, newStatus });
   };
 
   const handleDeleteJob = (jobId: string) => {
-    setJobApplications(prev => prev.filter(job => job.id !== jobId));
+    deleteJob(jobId);
   };
 
   const handleSignOut = async () => {
@@ -46,6 +45,17 @@ const Index = () => {
       description: 'You have been signed out successfully.',
     });
   };
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto mb-4"></div>
+          <p className="text-muted-foreground">Loading your applications...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-background">
@@ -62,9 +72,9 @@ const Index = () => {
           <div className="flex items-center gap-4">
             <Dialog open={isAddJobOpen} onOpenChange={setIsAddJobOpen}>
               <DialogTrigger asChild>
-                <Button className="gap-2">
+                <Button className="gap-2" disabled={isAddingJob}>
                   <Plus className="h-4 w-4" />
-                  Add Application
+                  {isAddingJob ? 'Adding...' : 'Add Application'}
                 </Button>
               </DialogTrigger>
               <DialogContent className="max-w-md">
