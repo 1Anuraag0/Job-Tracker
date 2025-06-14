@@ -3,8 +3,7 @@
 
 > A modern, intuitive web application to streamline your job search process and track applications with ease.
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-View%20App-blue?style=for-the-badge)](https://lovable.dev/projects/6d9bf246-3a81-4ac7-89f1-cebfe7bdf0e9)
-[![GitHub](https://img.shields.io/badge/GitHub-Repository-black?style=for-the-badge&logo=github)](https://github.com/your-username/job-application-tracker)
+
 
 ## 🌟 Features
 
@@ -17,15 +16,17 @@
 
 ## 🚀 Live Demo
 
-Experience the app live: [Job Application Tracker](https://lovable.dev/projects/6d9bf246-3a81-4ac7-89f1-cebfe7bdf0e9)
+Experience the app live: [Job Application Tracker]((https://vibes-job.lovable.app/auth))
 
 ## 📸 Screenshots
 
 ### Dashboard Overview
-![Dashboard](https://via.placeholder.com/800x400/0ea5e9/ffffff?text=Kanban+Board+View)
+![Dashboard](![image](https://github.com/user-attachments/assets/24f47f9b-1adc-4e14-8a2b-8820c4334fb4)
+)
 
 ### Application Management
-![Application Form](https://via.placeholder.com/800x400/8b5cf6/ffffff?text=Add+Job+Application)
+![Application Form](![image](https://github.com/user-attachments/assets/763bce8e-dcf0-4030-ae72-8da9a2be5196)
+)
 
 ## 🛠️ Tech Stack
 
@@ -166,11 +167,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Icons from [Lucide React](https://lucide.dev)
 - Database and authentication by [Supabase](https://supabase.com)
 
-## 📞 Support
-
-- 📧 Email: support@yourapp.com
-- 💬 Discord: [Join our community](https://discord.gg/yourserver)
-- 🐛 Issues: [GitHub Issues](https://github.com/your-username/job-application-tracker/issues)
 
 ## 🗺️ Roadmap
 
