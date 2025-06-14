@@ -1,13 +1,18 @@
-
 import React, { useState } from 'react';
-import { Plus } from 'lucide-react';
+import { Plus, LogOut, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 import { KanbanBoard } from '@/components/KanbanBoard';
 import { AddJobForm } from '@/components/AddJobForm';
 import { JobApplication } from '@/types/job';
+import { useAuth } from '@/contexts/AuthContext';
+import { useToast } from '@/hooks/use-toast';
 
 const Index = () => {
+  const { user, signOut } = useAuth();
+  const { toast } = useToast();
+  
   const [jobApplications, setJobApplications] = useState<JobApplication[]>([
     {
       id: '1',
@@ -61,6 +66,14 @@ const Index = () => {
     setJobApplications(prev => prev.filter(job => job.id !== jobId));
   };
 
+  const handleSignOut = async () => {
+    await signOut();
+    toast({
+      title: 'Signed out',
+      description: 'You have been signed out successfully.',
+    });
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <div className="container mx-auto px-4 py-8">
@@ -73,20 +86,39 @@ const Index = () => {
             </p>
           </div>
           
-          <Dialog open={isAddJobOpen} onOpenChange={setIsAddJobOpen}>
-            <DialogTrigger asChild>
-              <Button className="gap-2">
-                <Plus className="h-4 w-4" />
-                Add Application
-              </Button>
-            </DialogTrigger>
-            <DialogContent className="max-w-md">
-              <DialogHeader>
-                <DialogTitle>Add New Job Application</DialogTitle>
-              </DialogHeader>
-              <AddJobForm onSubmit={handleAddJob} />
-            </DialogContent>
-          </Dialog>
+          <div className="flex items-center gap-4">
+            <Dialog open={isAddJobOpen} onOpenChange={setIsAddJobOpen}>
+              <DialogTrigger asChild>
+                <Button className="gap-2">
+                  <Plus className="h-4 w-4" />
+                  Add Application
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="max-w-md">
+                <DialogHeader>
+                  <DialogTitle>Add New Job Application</DialogTitle>
+                </DialogHeader>
+                <AddJobForm onSubmit={handleAddJob} />
+              </DialogContent>
+            </Dialog>
+
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="outline" size="icon">
+                  <User className="h-4 w-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <DropdownMenuItem disabled>
+                  {user?.email}
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={handleSignOut}>
+                  <LogOut className="mr-2 h-4 w-4" />
+                  Sign Out
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </div>
         </div>
 
         {/* Stats Overview */}
