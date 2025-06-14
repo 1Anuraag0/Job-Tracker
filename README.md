@@ -1,7 +1,7 @@
 
 # 🎯 Job Application Tracker
 
-> A modern, intuitive web application to streamline your job search process and track applications with ease.
+> A modern,vibe coded, intuitive web application to streamline your job search process and track applications with ease.
 
 
 
@@ -116,13 +116,9 @@ This project uses a consistent design system built on:
 
 ## 🚀 Deployment
 
-### Deploy to Lovable (Recommended)
 
-1. Push your changes to the connected GitHub repository
-2. Visit your [Lovable Project](https://lovable.dev/projects/6d9bf246-3a81-4ac7-89f1-cebfe7bdf0e9)
-3. Click **Share → Publish** to deploy
 
-### Deploy to Other Platforms
+### Deploy 
 
 The application can be deployed to any static hosting service:
 
