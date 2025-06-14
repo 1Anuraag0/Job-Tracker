@@ -18,15 +18,6 @@
 
 Experience the app live: [Job Application Tracker]((https://vibes-job.lovable.app/auth))
 
-## 📸 Screenshots
-
-### Dashboard Overview
-![Dashboard](![image](https://github.com/user-attachments/assets/24f47f9b-1adc-4e14-8a2b-8820c4334fb4)
-)
-
-### Application Management
-![Application Form](![image](https://github.com/user-attachments/assets/763bce8e-dcf0-4030-ae72-8da9a2be5196)
-)
 
 ## 🛠️ Tech Stack
 
